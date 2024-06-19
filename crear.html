@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Cuenta - Papelería Ely</title>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Color de fondo claro */
+    color: #333; /* Color de texto principal */
+    text-align: center;
+  }
+  
+  header {
+    background-color: #6a0dad; /* Morado oscuro */
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    background-color: #6a0dad; /* Morado oscuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #8f5aff; /* Morado más claro al pasar el ratón */
+  }
+  
+  a {
+    color: #6a0dad; /* Morado oscuro */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Crear Cuenta - Papelería Ely</h1>
+</header>
+<main>
+  <div class="container">
+    <form id="registerForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <input type="submit" value="Registrar">
+    </form>
+  </div>
+</main>
+
+<footer style="margin-top: 20px;">
+  <a href="index.html">Regresar a Papelería Ely</a>
+</footer>
+
+<script>
+  document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+   
+    let nombre = document.getElementById("nombre").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    
+
+    if (nombre && email && password) {
+      
+      showMessage("¡Cuenta registrada con éxito para " + nombre + "!");
+     
+    } else {
+      showMessage("Por favor completa todos los campos.");
+    }
+  });
+  
+ 
+  function showMessage(message) {
+    let messageElement = document.createElement("div");
+    messageElement.textContent = message;
+    messageElement.classList.add("message");
+    document.body.appendChild(messageElement);
+    
+    setTimeout(function() {
+      messageElement.remove();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
